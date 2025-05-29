@@ -1,0 +1,26 @@
+#################################################################
+#                                                               #
+#               🚨 SECURITY BREACH DETECTED 🚨                  #
+#                                                               #
+#   Your network is under ACTIVE attack!                        #
+#                                                               #
+#   🚩 Intrusion Detection Systems have raised multiple alarms. #
+#   🚩 Suspicious network traffic is flooding into this server. #
+#                                                               #
+#   🛡️ Your Mission as the Incident Responder:                   #
+#                                                               #
+#                                                               #
+#   1. Investigate the network traffic carefully.               #
+#   2. Identify the attacker's IP address (last octet).         #
+#   3. Detect the payload signature used in the attack.         #
+#   4. Identify the target port number.                         #
+#                                                               #
+#   Once you have the flag type "found" in terminal             #
+#   Then type the flag when asked                               #
+#                                                               #
+#   👉 Flag Format: <payload>_<last_octet>_<port>               #
+#      Example: shadow_2_8080                                   #
+#                                                               #
+#   GOOD LUCK, DEFENDER. THE NETWORK RELIES ON YOU.             #
+#                                                               #
+#################################################################

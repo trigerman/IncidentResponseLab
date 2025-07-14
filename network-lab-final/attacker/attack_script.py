@@ -9,7 +9,8 @@ _____ = ____.split('.')[-1]
 
 # Reset stop flag
 try:
-    open("/shared/stop_attack.txt", "w").write("0\n") or print("[INIT] stop_attack.txt reset to 0")
+    open("/shared/stop_attack.txt", "w").write("0\n")
+    print("[INIT] stop_attack.txt reset to 0")
 except Exception as e:
     print(f"[ERROR] Failed to reset stop_attack.txt: {e}")
 
@@ -25,10 +26,9 @@ T = "172.20.0.10"
 # Get attack command
 get = lambda: ["hping3"] + {
     "tcp_syn": ["-S"], 
-    "udp_flood": ["--udp"], 
-    "ping_sweep": ["-1"], 
+    "udp_flood": ["--udp"],  
     "xmas_scan": ["-X"], 
-    "null_scan": ["-Y"]
+    "null_scan": []
 }.get(___, []) + ["-d", "64", "-E", "/tmp/payload.txt", "-p", str(__), T]
 
 # Execute

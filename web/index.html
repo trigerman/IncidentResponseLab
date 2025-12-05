@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Incident Response Lab – Browser Edition</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="lab-header">
+      <div>
+        <h1>Incident Response Lab</h1>
+        <p class="subtitle">Browser-delivered Snort vs Attacker simulation (v86)</p>
+      </div>
+      <div class="build-meta">
+        <label class="manifest-label">
+          Manifest
+          <select id="manifest-select"></select>
+        </label>
+        <button id="reload-manifest">Reload</button>
+      </div>
+    </header>
+
+    <main class="lab-main">
+      <section class="vm-grid">
+        <article class="vm-pane" data-role="defender">
+          <header>
+            <h2>Defender VM</h2>
+            <span class="status" id="defender-status">idle</span>
+          </header>
+          <div class="console-container">
+            <div id="defender-screen" class="console-screen">
+              <canvas width="640" height="400"></canvas>
+            </div>
+          </div>
+          <footer>
+            <button class="btn" id="defender-boot">Boot Defender</button>
+            <button class="btn secondary" id="defender-reset">Reset</button>
+          </footer>
+        </article>
+
+        <article class="vm-pane" data-role="attacker">
+          <header>
+            <h2>Attacker VM</h2>
+            <span class="status" id="attacker-status">idle</span>
+          </header>
+          <div class="console-container">
+            <div id="attacker-screen" class="console-screen">
+              <canvas width="640" height="400"></canvas>
+            </div>
+          </div>
+          <footer>
+            <button class="btn" id="attacker-boot">Boot Attacker</button>
+            <button class="btn secondary" id="attacker-reset">Reset</button>
+          </footer>
+        </article>
+      </section>
+
+      <aside class="control-panel">
+        <h3>Lab Controls</h3>
+        <div class="flag-info">
+          <p class="flag-label">Current flag seed</p>
+          <code id="flag-seed">not generated</code>
+          <button class="btn" id="regen-flag">Regenerate</button>
+        </div>
+        <div class="network-panel">
+          <h4>Network Bridge</h4>
+          <p id="network-status">bridge idle</p>
+          <button class="btn tertiary" id="toggle-bridge">Start Bridge</button>
+        </div>
+        <div class="logs-panel">
+          <h4>Event Log</h4>
+          <pre id="event-log"></pre>
+        </div>
+      </aside>
+    </main>
+    <script defer src="./vendor/v86/libv86.js"></script>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

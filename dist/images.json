@@ -1,0 +1,16 @@
+{
+  "images": [
+    {
+      "role": "attacker",
+      "file": "attacker.img.gz",
+      "size_bytes": 3307794,
+      "sha256": "468c762ebdf84e7503eea484cb1db3e497d454916421ac1ef6e205882a16311f"
+    },
+    {
+      "role": "defender",
+      "file": "defender.img.gz",
+      "size_bytes": 3307718,
+      "sha256": "3d28cab77a34b99df8a759c2e57ffed5ef02f8fe214616158f9a72fbb798cd39"
+    }
+  ]
+}

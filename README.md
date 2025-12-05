@@ -20,7 +20,7 @@ pip install -r requirements.txt
 
 > **Note:** You must have Python 3 and `pip` installed.
 
-### 2. Run the Lab
+### 2. Run the Lab (Docker mode)
 
 ```bash
 python3 run.py         # Normal mode
@@ -60,6 +60,31 @@ found shadow_2_8080
 - No clues are shown in **normal mode**.
 - The attacker adapts if the wrong flag is submitted!
 - The flag is generated fresh each session.
+
+---
+
+## Browser / v86 Prototype
+
+An experimental browser-native delivery is under construction. Current workflow:
+
+1. **Build VM images**
+   ```bash
+   python tools/build_images.py --role attacker --role defender
+   ```
+   - Add `--skip-packages` when working on Windows (apk installs require Linux).
+   - Use `--image-type ext4 --image-size-mb 512` on Linux hosts with `mke2fs` installed to emit raw disks for v86.
+2. **Fetch the v86 runtime assets (once)**
+   ```bash
+   python tools/fetch_v86_assets.py
+   ```
+   This downloads `libv86.js`, `v86.wasm`, BIOS blobs, and the sample Buildroot kernel into `web/vendor/v86/`.
+3. **Serve the web UI** (from repo root)
+   ```bash
+   python -m http.server 8080
+   ```
+   Run the server from the project root so `/dist/images.json` resolves correctly, then open `http://localhost:8080/web/` to access the dual-console layout, manifest selector, flag generator, and bridge controls. The current build boots both VMs with the v86 Buildroot demo kernel so you can validate the environment while the custom lab images are still being provisioned.
+
+The Docker workflow remains the supported path while the browser port stabilizes.
 
 ---
 
